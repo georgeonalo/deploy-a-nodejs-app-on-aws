@@ -190,12 +190,42 @@ pm2 save
 If you need to stop or delete the app, use the following commands (you don't need to do this if you're going to terminate the EC2 instance at the end, but just good to know)
 pm2 stop 0 (to stop app with IP 0)
 pm2 delete all (to delete/completely remove the apps from the list)
+```
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/5a937987-8a56-461e-bf1b-7b49626a8bec)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/723dd42a-42a0-429b-8d39-697f526ae312)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/be58fb7b-2db1-48f3-8612-f85dd073d7e6)
+
+
+#### Step 9: Access the the nodejsapp on port 5000, by copying the public ip of the setup server, paste it on any browser and add ":5000" to the end.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/1cbe65b1-0c3c-496d-9a44-847dc41ba5b3)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/119af54f-eb16-410e-872d-61ae9f831b57)
+
+Hurray, our app can now be accessed.
+
+
+#### Step 10: Test the app by inputing some details and login to the rds database via a myaql workbench tool to check.
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/0033f95b-8fd7-45dc-8d43-a92ecf3a5787)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/c384b679-8127-4959-9e91-bb55963288c3)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/99fce0c7-0179-4371-8c2e-f42d2c80d229)
+
 
 
 
 If creating a load balancer for this, for healthcheck use "/"
 Now, let's use nginx to forward requests to port 80 i.e. we don't have to add "5000" to the browser anymore, we can just type the IP or the provided DNS name of the EC2 instance in any browser and it should work:
- 
+
+
+``` 
 sudo nano /etc/nginx/nginx.conf
 Now, add this to the file, in the server section
 ********************************************
@@ -208,7 +238,7 @@ server {
        proxy_pass http://localhost:5000;
    }
 }
-********************************************
+```
 
 Now do:
 sudo service nginx restart (Restart nginx)
@@ -237,33 +267,51 @@ https://stackoverflow.com/a/66915607
 https://www.cyberciti.biz/faq/linux-unix-bsd-nginx-413-request-entity-too-large/
 
 My Google Drive: https://drive.google.com/drive/folders/1Odgbg6mR7zdJW9AFn_-xHNzQ9eWaFOyC?usp=sharing
-```
 
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/5a937987-8a56-461e-bf1b-7b49626a8bec)
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/723dd42a-42a0-429b-8d39-697f526ae312)
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/ce4a7c15-c0fa-433a-9994-1ebd2477f702)
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/be58fb7b-2db1-48f3-8612-f85dd073d7e6)
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/98959488-ce64-4201-a1f2-09b0e20936ed)
 
-
-#### Step 9: Access the the nodejsapp on port 5000, by copying the public ip of the setup server, paste it on any browser and add ":5000" to the end.
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/6bdc17e6-f334-48b4-a60b-6f1dc4010267)
 
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/1cbe65b1-0c3c-496d-9a44-847dc41ba5b3)
-
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/119af54f-eb16-410e-872d-61ae9f831b57)
-
-Hurray, our app can now be accessed.
 
 
-#### Step 10: Test the app by inputing some details and login to the rds database via a myaql workbench tool to check.
+#### Step 11: Create an AMI of the Setup Server and delete it.
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/0033f95b-8fd7-45dc-8d43-a92ecf3a5787)
+This AMI will be used for creating our Application Loadbalancer and Autoscaling Group.
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/c384b679-8127-4959-9e91-bb55963288c3)
 
-![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/99fce0c7-0179-4371-8c2e-f42d2c80d229)
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/de043d77-fdf8-40a0-af50-fff248ec41e1)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/fa3596ae-7716-4c2d-8010-09a04c232186)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/7268d27d-2ce9-4807-8486-fd8ca27ba20e)
+
+
+
+#### Step 12: Create application Loadbalancer for distributing traffic.
+
+First launch two servers in the private subnets with the help of the AMI.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/ac9a114d-dd7b-4fbe-a0ab-66408e1ef8d6)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/1b588181-32d2-4942-9015-45098bfe7931)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/08e3f246-0939-425d-8d2f-1b81b1fae419)
+
+
+#### Step 13: Paste the Loadbalancer dns in the browser to access the app
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/5bbcdbad-29a1-4d37-ae54-b64d3878d235)
+
+
+
+
 
 
 
