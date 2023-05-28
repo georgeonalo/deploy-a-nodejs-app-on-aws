@@ -310,6 +310,95 @@ First launch two servers in the private subnets with the help of the AMI.
 ![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/5bbcdbad-29a1-4d37-ae54-b64d3878d235)
 
 
+#### Step 13: Create SSL Certificate and Secure communication in transit.
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/e3d37e11-64ff-4a16-b2f1-7ada9b35456e)
+
+
+#### Add HTTPS LISTENER ON PORT 443 AND REDIRECT HTTP LISTENER (EDIT IT) TO 443
+
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/7ad92cbf-c58a-4721-8e46-d80727da5444)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/27a4db87-e446-4265-9246-2a81f1317984)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/e7547ccc-dca7-4f96-aca4-4c0b14a9436c)
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/0f496de4-bd9b-4bcd-be65-f42c957b1999)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/b69485e8-5aa1-487f-a450-12343817cb57)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/707d3dcc-fb09-43e5-a09e-4233f9db9e8b)
+
+
+
+#### Step 14: Create Record set in Route 53 and point it to the the load balancer dns
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/ee442608-a8bb-4efe-9a0b-ed01a49410d6)
+
+
+#### Step 15: Copy the A record dns and paste it a browser to access the website
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/28b5d569-3636-488f-8f9c-092674d6a440)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/0dd90c3e-e7e3-4c89-8121-46e617aab2d9)
+
+
+
+#### Step 16: Launch an Auto Scaling Group.
+
+first delete the two(2) running servers, and launch two new servers from the AMI and attach the load balancer to it.
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/ea3136c1-1112-407e-87a2-ef8836ebb40f)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/8b6b9954-a10b-4c6d-9640-f3f75efe698b)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/1ba30251-b086-4109-83a3-543b0dd83d20)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/b447d7fc-b271-41d9-91ad-77845cd68c4d)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/eb4ce642-bc16-43fc-8f96-02978a00ff1e)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/de14468e-b484-4191-99a8-0ee6364434a2)
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/b4e26d5d-7f71-4be1-b5a2-e13a8720d11f)
+
+
+
+#### Step 17: Type in your domain name in the browser to see if the app is accessible.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/46157e5f-3118-40da-8a93-aa0d4dda770d)
+
+
+
+Yes, it is.
+
+
+#### In conclusion,
+
+If you carry out all the afformentioned steps, you will succeed in deploying a nodejs/mysql app on aws.
+
+
+#### Note:
+
+Take down all created resources, to avoid charges.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
