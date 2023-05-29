@@ -14,6 +14,40 @@ The Nodejs and Mysql app is an application that lets you add players to a databa
 
 
 
+🛠️ In the course of completing this project, i created/used the following resources below:
+
+
+✅ Vscode to edit codes in the Nodejs webfiles.
+
+✅ 3 Tier VPC with public and private subnets in two availability zones.
+
+✅ Internet Gateway to allow communication between resources in vpc and the internet.
+
+✅ Nat Gateway to allow resources in the private subnets access to the Internet.
+
+✅ MYSQL RDS for relational database.
+
+✅ MYSQL WORKBENCH to connect to RDS database
+
+✅ Application Load Balancer to distribute web traffic to the web servers in the private subnets.
+
+✅ Auto Scaling Group to dynamically create and scale the web servers in the private subnets.
+
+✅ Route 53 to create a record set and point it to the load balancer dns.
+
+✅ TLS certificate to encrypt/secure all communication/data in transit.
+
+✅ Security groups to control traffic to resources.
+
+✅ Setup server in the public subnet from which an AMI was created.
+
+✅ S3 and Session manger(SSM) Role to grant setup server(ec2) permission access to S3 bucket.
+
+✅ S3 bucket to store Nodejs web files.
+
+✅ AMI to create web servers and auto scaling group.
+
+
 ### Steps taken to complete this project.
 
 #### Step 1: Create a  custom vpc with nategateway, subnets, route table and internet gateway
