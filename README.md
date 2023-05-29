@@ -7,7 +7,7 @@ The Nodejs and Mysql app is an application that lets you add players to a databa
 ## Overview of the Three(3) tier vpc architecture diagram 
 
 
-![nodejs vpc diagram](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/8ddc2012-c36b-443e-a95d-1e12560fcf06)
+![Untitled Diagram (10)](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/e4412e64-9936-4fc6-b88b-9f49e901a47e)
 
 
 
