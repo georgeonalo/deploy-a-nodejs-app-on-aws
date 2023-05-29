@@ -4,7 +4,7 @@ In this project, i deployed a Nodejs and Mysql soccer app on aws using a three(3
 
 The Nodejs and Mysql app is an application that lets you add players to a database and also display their details from the database. in addition, it allows one to delete and edit player details.
 
-## Overview of the Three(3) tier vpc architecture diagram 
+## Overview of the Three Tier VPC architecture diagram 
 
 
 ![Untitled Diagram (10)](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/e4412e64-9936-4fc6-b88b-9f49e901a47e)
