@@ -36,7 +36,7 @@ I created a vpc with two(2) public subnet and four(4), internet gateway, nat gat
 
 
 
-### Step 3: Create and S3 bucket and upload the Nodejs web files(codes)
+### Step 3: Create a S3 bucket and upload the Nodejs web files(codes)
 
 Before uploading, i first edited the app.js file buy adding my rds endpoint to the section in the app.js code containing the rds endpoint.
 
