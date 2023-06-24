@@ -1,4 +1,4 @@
-# Deploy a node-mysql-crud-app on aws 
+# Deploy a nodejs-mysql crud app on aws 
 
 In this project, i deployed a nodejs-mysql soccer app on aws. This app allows players to add/input their details like, position, name, username and photo in a database.
 
