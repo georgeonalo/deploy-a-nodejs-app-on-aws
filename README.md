@@ -25,7 +25,7 @@ I created a vpc with two(2) public subnet and four(4), internet gateway, nat gat
 
 
 
-### Step 3: Create an rds instance.
+### Step 2: Create an rds instance.
 
 ![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/e5841786-9e2f-4a35-a4cf-e268378d2712)
 
@@ -36,7 +36,7 @@ I created a vpc with two(2) public subnet and four(4), internet gateway, nat gat
 
 
 
-### Step 4: Create and S3 bucket and upload the Nodejs web files(codes)
+### Step 3: Create and S3 bucket and upload the Nodejs web files(codes)
 
 Before uploading, i first edited the app.js file buy adding my rds endpoint to the section in the app.js code containing the rds endpoint.
 
@@ -50,7 +50,7 @@ Before uploading, i first edited the app.js file buy adding my rds endpoint to t
 
 
 
-### Step 5: Connect to the rds instance with mysql workbench
+### Step 4: Connect to the rds instance with mysql workbench
 
 The purpose of connecting to the rds database is to add the needed database and tables to our already created RDS-MySqL database.
 
@@ -96,7 +96,7 @@ select * from players;
 
 
 
-### Step 6: Create an EC2 instance
+### Step 5: Create an EC2 instance
 
 I created an ec2 instance with s3 and session manager role attached to it, its on this instance my nodejs application is installed.
 
@@ -232,6 +232,54 @@ To comfirm, if this details have been properly captured by the rds database, sim
 
 
 Yes its captured.
+
+
+
+
+### Step 6: Create an Application Load Balancer
+
+I created an application load balancer to direct traffic to my webserver.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/ea332f78-877c-47ff-bc6b-560f7b731e4a)
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/dbd1fc68-3890-463d-85d4-ce46760d0334)
+
+
+
+
+### Step 7: Secured connection with ssl/tls certificate
+
+To ensure, my application is secured when users interract with it, i simply created a certificate in certicate manager console.
+
+This cerficate was now used to link the https listenner in the application load balancer.
+
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/c88861da-f2ce-4c9b-ba5c-26e6546b401a)
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/303792d1-093d-44c7-b9dd-e922e3b0e469)
+
+
+
+### Step 8: Create a record in route 53 
+
+Finally, create a record in route 53 to point it to the dns of the load balancer service created earlier.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/585bd49b-153c-4733-bb03-bdb1bb885715)
+
+
+Once the record has been created, i paste the record name on a browser to access my nodejs-mysql web application.
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/b81bc9ab-3f3b-41bb-8b96-7ed6eccd3046)
+
+
+![image](https://github.com/georgeonalo/deploy-a-nodejs-app-on-aws/assets/115881685/b1c73889-c9e6-4b5b-afac-3a19363b32fc)
+
+
 
 
 
